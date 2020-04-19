@@ -8,8 +8,6 @@ const colors = {
 };
 
 const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Oxygen+Mono&family=Raleway:wght@200;300;400&display=swap');
-
   * {
     margin: 0;
     padding: 0;

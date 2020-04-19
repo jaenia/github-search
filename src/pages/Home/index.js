@@ -1,7 +1,15 @@
 import React from 'react';
 
-// import { Container } from './styles';
+import MainHeader from '../../components/MainHeader';
+import SearchInput from '../../components/SearchInput';
+
+import { Container } from './styles';
 
 export default function Home() {
-  return <h1>Hello from Home</h1>;
+  return (
+    <Container>
+      <MainHeader size="60px" />
+      <SearchInput value="jaenia" />
+    </Container>
+  );
 }
