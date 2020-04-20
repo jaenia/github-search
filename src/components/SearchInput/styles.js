@@ -1,4 +1,4 @@
-import styled, { keyframes, css } from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 import { colors } from '../../styles/global';
 
@@ -24,10 +24,11 @@ const rotate = keyframes`
   }
 `;
 
-export const SubmitButton = styled.button.attrs((props) => ({
-  type: 'submit',
-  disabled: props.loading,
-}))`
+export const AnimatedSpinner = styled.img`
+  animation: ${rotate} 2s linear infinite;
+`;
+
+export const SubmitButton = styled.button`
   border: 0;
   border-radius: 2px;
   padding: 0 15px;
@@ -46,12 +47,4 @@ export const SubmitButton = styled.button.attrs((props) => ({
     cursor: not-allowed;
     opacity: 0.6;
   }
-
-  ${(props) =>
-    props.loading &&
-    css`
-      img {
-        animation: ${rotate} 2s linear infinite;
-      }
-    `}
 `;

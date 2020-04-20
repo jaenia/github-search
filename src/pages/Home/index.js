@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <Container>
       <MainHeader size="60px" />
-      <SearchInput value="jaenia" />
+      <SearchInput value="" labelText="User" />
     </Container>
   );
 }

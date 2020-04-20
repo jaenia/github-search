@@ -1,20 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Form, SubmitButton } from './styles';
+import { Form, SubmitButton, AnimatedSpinner } from './styles';
 
-import SearchIcon from '../../assets/icons/search.svg';
-import Spinner from '../../assets/icons/spinner.svg';
+import searchIcon from '../../assets/icons/search.svg';
+import spinner from '../../assets/icons/spinner.svg';
 
-export default function SearchInput({ value, loading }) {
+export default function SearchInput({ value, loading, labelText }) {
   return (
-    <Form>
-      <input type="text" value={value} />
-      <SubmitButton type="submit" loading={loading}>
+    <Form data-testid="search-input">
+      <input
+        aria-label={labelText}
+        aria-required="true"
+        type="text"
+        value={value}
+      />
+      <SubmitButton type="submit" disabled={loading}>
         {loading ? (
-          <img src={Spinner} alt="Loading your search" />
+          <AnimatedSpinner src={spinner} alt="Loading your search" />
         ) : (
-          <img src={SearchIcon} alt="Search icon" />
+          <img src={searchIcon} alt="Search" />
         )}
       </SubmitButton>
     </Form>
@@ -23,6 +28,7 @@ export default function SearchInput({ value, loading }) {
 
 SearchInput.propTypes = {
   value: PropTypes.string.isRequired,
+  labelText: PropTypes.string.isRequired,
   loading: PropTypes.bool,
 };
 
