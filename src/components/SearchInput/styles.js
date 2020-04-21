@@ -4,10 +4,13 @@ import { colors } from '../../styles/global';
 
 export const Form = styled.form`
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
+  width: 100%;
 
   input {
-    width: 650px;
+    min-width: 0;
     padding: 10px 15px;
     border: 0;
     color: ${colors.gray};

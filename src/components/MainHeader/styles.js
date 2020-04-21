@@ -9,4 +9,8 @@ export const Title = styled.div`
     font-family: 'Oxygen Mono';
     font-style: normal;
   }
+
+  @media screen and (max-width: 500px) {
+    font-size: 11vw;
+  }
 `;
