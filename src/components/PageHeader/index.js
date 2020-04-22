@@ -7,7 +7,7 @@ import { StyledHeader } from './styles';
 
 export default function PageHeader() {
   return (
-    <StyledHeader>
+    <StyledHeader data-testid="page-header">
       <MainHeader size="40px" />
       <SearchInput value="" labelText="User" />
     </StyledHeader>
