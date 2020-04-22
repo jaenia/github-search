@@ -1,7 +1,13 @@
 import React from 'react';
 
-// import { Container } from './styles';
+import { Container } from './styles';
+
+import PageHeader from '../../components/PageHeader';
 
 export default function Result() {
-  return <h1>Hello from Result</h1>;
+  return (
+    <Container>
+      <PageHeader />
+    </Container>
+  );
 }

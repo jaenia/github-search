@@ -8,9 +8,11 @@ export const Form = styled.form`
   align-items: center;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
   width: 100%;
+  height: 50px;
 
   input {
     min-width: 0;
+    width: 100%;
     padding: 10px 15px;
     border: 0;
     color: ${colors.gray};
