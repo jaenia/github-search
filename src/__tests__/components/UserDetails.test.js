@@ -3,19 +3,28 @@ import { render } from '@testing-library/react';
 
 import UserDetails from '../../components/UserDetails';
 
-const data = [
-  { type: 'organization', value: 'The Galactic Empire' },
-  { type: 'location', value: 'Tatooine' },
-  { type: 'star', value: '1.000.000' },
-  { type: 'repositories', value: '4' },
-  { type: 'followers', value: '9.999.999' },
+const data = {
+  company: 'The Galactic Empire',
+  location: 'Tatooine',
+  starred: 10,
+  publicRepos: 4,
+  followers: 100,
+};
+
+const altTexts = [
+  'Company',
+  'Location',
+  'Number of stars',
+  'Number of public repos',
+  'Number of followers',
 ];
 
 describe('UserDetails component', () => {
-  it('should render with success', () => {
-    const userDetails = render(<UserDetails details={data} />);
-    const details = userDetails.getAllByTestId('user-detail');
+  it('should render user details with every 5 items', () => {
+    const { container, getByAltText } = render(<UserDetails details={data} />);
 
-    expect(details.length).toBe(data.length);
+    altTexts.forEach((text) => {
+      expect(container).toContainElement(getByAltText(text));
+    });
   });
 });
