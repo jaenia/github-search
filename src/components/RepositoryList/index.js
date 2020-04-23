@@ -7,10 +7,10 @@ import RepositoryResume from '../RepositoryResume';
 
 export default function RepositoryList({ repositories }) {
   return (
-    <section>
+    <section data-testid="repository-list">
       <StyledList>
         {repositories.map((repo) => (
-          <li key={repo.id}>
+          <li key={repo.id} data-testid="user-repo">
             <RepositoryResume
               name={repo.name}
               description={repo.description}
