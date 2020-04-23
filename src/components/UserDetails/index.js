@@ -14,12 +14,14 @@ const altTypes = {
 };
 
 export default function UserDetails({ details }) {
+  const detailsKeys = Object.keys(details);
+
   return (
     <StyledList>
-      {details.map((detail) => (
-        <li data-testid="user-detail" key={detail.value}>
-          <img src={icons[detail.type]} alt={altTypes[detail.type]} />
-          {detail.value}
+      {detailsKeys.map((key) => (
+        <li data-testid="user-detail" key={key}>
+          <img src={icons[key]} alt={altTypes[key]} />
+          {details[key]}
         </li>
       ))}
     </StyledList>
@@ -27,10 +29,8 @@ export default function UserDetails({ details }) {
 }
 
 UserDetails.propTypes = {
-  details: PropTypes.arrayOf(
-    PropTypes.shape({
-      type: PropTypes.string,
-      value: PropTypes.string,
-    })
-  ).isRequired,
+  details: PropTypes.shape({
+    type: PropTypes.string,
+    value: PropTypes.string,
+  }).isRequired,
 };
