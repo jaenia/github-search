@@ -16,13 +16,15 @@ const userDetails = [
 export default function UserInfo({ user }) {
   return (
     <Container>
-      <Avatar>
-        <img src={user.avatar_url} alt="User avatar" />
-      </Avatar>
-      <h2>
-        <Name>{user.name}</Name>
-        <Login>{user.login}</Login>
-      </h2>
+      <section>
+        <Avatar>
+          <img src={user.avatar_url} alt="User avatar" />
+        </Avatar>
+        <h2>
+          <Name>{user.name}</Name>
+          <Login>{user.login}</Login>
+        </h2>
+      </section>
       <UserDetails details={userDetails} />
     </Container>
   );

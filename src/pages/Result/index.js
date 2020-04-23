@@ -13,7 +13,7 @@ const user = {
   login: 'jaenia',
 };
 
-// const user = {null};
+// const user = null;
 
 const repositories = [
   {

@@ -11,6 +11,16 @@ export const Container = styled.div`
     display: flex;
     margin-top: 50px;
   }
+
+  @media screen and (max-width: 768px) {
+    main {
+      flex-direction: column;
+    }
+
+    section:last-child {
+      margin-top: 32px;
+    }
+  }
 `;
 
 export const UserNotFound = styled.span`
@@ -20,4 +30,8 @@ export const UserNotFound = styled.span`
   text-align: center;
   font-size: 40px;
   color: ${colors.lighterPurple};
+
+  @media screen and (max-width: 368px) {
+    font-size: 10vw;
+  }
 `;

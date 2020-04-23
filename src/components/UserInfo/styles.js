@@ -11,11 +11,32 @@ export const Container = styled.section`
     display: block;
     font-weight: 300;
   }
+
+  @media screen and (max-width: 768px) {
+    margin-right: 0;
+
+    section {
+      display: flex;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 24px;
+      margin-bottom: 24px;
+
+      figure img {
+        max-width: 30vw;
+      }
+
+      span {
+        margin-top: 0;
+        width: 100%;
+        margin-left: 24px;
+      }
+    }
+  }
 `;
 
 export const Avatar = styled.figure`
   img {
-    width: 280px;
+    max-width: 280px;
     border-radius: 2px;
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
   }
