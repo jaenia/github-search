@@ -5,18 +5,10 @@ import { Container, Avatar, Name, Login } from './styles';
 
 import UserDetails from '../UserDetails';
 
-const userDetails = [
-  { type: 'company', value: 'The Galactic Empire' },
-  { type: 'location', value: 'Tatooine' },
-  { type: 'starred', value: '1.000.000' },
-  { type: 'publicRepos', value: '4' },
-  { type: 'followers', value: '9.999.999' },
-];
-
 export default function UserInfo({ user }) {
   return (
     <Container>
-      <section>
+      <section data-testid="user-info">
         <Avatar>
           <img src={user.avatar_url} alt="User avatar" />
         </Avatar>
@@ -25,7 +17,7 @@ export default function UserInfo({ user }) {
           <Login>{user.login}</Login>
         </h2>
       </section>
-      <UserDetails details={userDetails} />
+      <UserDetails details={user.details} />
     </Container>
   );
 }
@@ -35,5 +27,12 @@ UserInfo.propTypes = {
     name: PropTypes.string,
     avatar_url: PropTypes.string,
     login: PropTypes.string,
+    details: PropTypes.shape({
+      company: PropTypes.string,
+      location: PropTypes.string,
+      starred: PropTypes.number,
+      publicRepos: PropTypes.number,
+      followers: PropTypes.number,
+    }),
   }).isRequired,
 };
