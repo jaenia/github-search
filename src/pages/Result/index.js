@@ -1,4 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+
+import useSearchUser from '../../hooks/useSearchUser';
 
 import { Container, UserNotFound } from './styles';
 
@@ -7,38 +10,22 @@ import UserInfo from '../../components/UserInfo';
 
 import RepositoryList from '../../components/RepositoryList';
 
-const user = {
-  name: 'Jaênia Sousa',
-  login: 'jaenia',
-  avatar_url: 'https://avatars2.githubusercontent.com/u/17907292?v=4',
-  details: {
-    company: 'The Galactic Empire',
-    location: 'Tatooine',
-    starred: 10,
-    publicRepos: 4,
-    followers: 100,
-  },
-};
-
-// const user = null;
-
-const repositories = [
-  {
-    id: 1,
-    name: 'github-search',
-    description:
-      'A simple app where you can search for GitHub users and view their repositories.',
-    stargazers_count: 5,
-  },
-  {
-    id: 2,
-    name: 'Death Star',
-    description: 'The most powerful weapon in the Universe',
-    stargazers_count: 10,
-  },
-];
-
 export default function Result() {
+  const {
+    search,
+    loading,
+    result,
+    handleInputChange,
+    handleSubmit,
+    getSearch,
+  } = useSearchUser();
+  const { user, repos } = result;
+  const { user: userParam } = useParams();
+
+  useEffect(() => {
+    getSearch(userParam);
+  }, []);
+
   return (
     <Container>
       <PageHeader />
@@ -46,7 +33,7 @@ export default function Result() {
         {user !== null ? (
           <>
             <UserInfo user={user} />
-            <RepositoryList repositories={repositories} />
+            <RepositoryList repositories={repos} />
           </>
         ) : (
           <UserNotFound>User not found :(</UserNotFound>

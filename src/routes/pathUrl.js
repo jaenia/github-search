@@ -7,7 +7,7 @@ const pathUrl = [
     component: Home,
   },
   {
-    path: '/result',
+    path: '/user/:user',
     component: Result,
   },
 ];
