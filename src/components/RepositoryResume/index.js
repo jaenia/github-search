@@ -21,5 +21,5 @@ export default function RepositoryResume({ name, description, stars }) {
 RepositoryResume.propTypes = {
   name: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  stars: PropTypes.number.isRequired,
+  stars: PropTypes.string.isRequired,
 };

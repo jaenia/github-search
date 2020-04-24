@@ -15,6 +15,7 @@ export default function Result() {
     search,
     loading,
     result,
+    error,
     handleInputChange,
     handleSubmit,
     getSearch,
@@ -35,13 +36,13 @@ export default function Result() {
         loading={loading}
       />
       <main>
-        {user !== null ? (
+        {error.isError ? (
+          <UserNotFound>{error.message}</UserNotFound>
+        ) : (
           <>
             <UserInfo user={user} />
             <RepositoryList repositories={repos} />
           </>
-        ) : (
-          <UserNotFound>User not found :(</UserNotFound>
         )}
       </main>
     </Container>

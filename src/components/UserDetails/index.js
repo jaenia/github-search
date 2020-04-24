@@ -5,13 +5,7 @@ import { StyledList } from './styles';
 
 import icons from '../../assets/icons';
 
-const altTypes = {
-  company: 'Company',
-  location: 'Location',
-  starred: 'Number of stars',
-  publicRepos: 'Number of public repos',
-  followers: 'Number of followers',
-};
+import { altTypes } from '../../utils/types';
 
 export default function UserDetails({ details }) {
   const detailsKeys = Object.keys(details);
