@@ -31,7 +31,7 @@ export default function useSearchUser() {
   const handleSubmit = useCallback(
     (e) => {
       e.preventDefault();
-      history.push(`user/${search}`);
+      history.push(`/user/${search}`);
     },
     [search, history]
   );
@@ -43,7 +43,6 @@ export default function useSearchUser() {
       api.getRepos(searchText),
       api.getUserStars(searchText),
     ]);
-    setLoading(false);
 
     const parsedUser = {
       name: user.name,
@@ -66,12 +65,15 @@ export default function useSearchUser() {
     }));
 
     setResult({ user: parsedUser, repos: parsedRepos });
+    setSearch('');
+    setLoading(false);
   }
 
   return {
     search,
     loading,
     result,
+    setSearch,
     handleInputChange,
     handleSubmit,
     getSearch,

@@ -24,11 +24,16 @@ export default function Result() {
 
   useEffect(() => {
     getSearch(userParam);
-  }, []);
+  }, [userParam]);
 
   return (
     <Container>
-      <PageHeader />
+      <PageHeader
+        search={search}
+        onChange={handleInputChange}
+        onSubmit={handleSubmit}
+        loading={loading}
+      />
       <main>
         {user !== null ? (
           <>
