@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
 
 import useSearchUser from '../../hooks/useSearchUser';
@@ -7,8 +8,20 @@ import { Container, UserNotFound } from './styles';
 
 import PageHeader from '../../components/PageHeader';
 import UserInfo from '../../components/UserInfo';
+import Spinner from '../../components/Spinner';
 
 import RepositoryList from '../../components/RepositoryList';
+
+const ResultContent = ({ error, user, repos, loading }) => {
+  return error.isError ? (
+    <UserNotFound>{error.message}</UserNotFound>
+  ) : (
+    <>
+      <UserInfo user={user} loading={loading} />
+      <RepositoryList repositories={repos} />
+    </>
+  );
+};
 
 export default function Result() {
   const {
@@ -36,15 +49,30 @@ export default function Result() {
         loading={loading}
       />
       <main>
-        {error.isError ? (
-          <UserNotFound>{error.message}</UserNotFound>
+        {loading ? (
+          <Spinner />
         ) : (
-          <>
-            <UserInfo user={user} />
-            <RepositoryList repositories={repos} />
-          </>
+          <ResultContent
+            error={error}
+            user={user}
+            repos={repos}
+            loading={loading}
+          />
         )}
       </main>
     </Container>
   );
 }
+
+ResultContent.propTypes = {
+  error: PropTypes.shape({ isError: PropTypes.bool, message: PropTypes.string })
+    .isRequired,
+  user: PropTypes.shape({
+    name: PropTypes.string,
+    avatar_url: PropTypes.string,
+    login: PropTypes.string,
+    details: PropTypes.object,
+  }).isRequired,
+  repos: PropTypes.arrayOf(PropTypes.object).isRequired,
+  loading: PropTypes.bool.isRequired,
+};
