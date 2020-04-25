@@ -6,7 +6,9 @@ import { Title } from './styles';
 export default function MainHeader({ size }) {
   return (
     <Title size={size} data-testid="main-header">
-      <span>Github</span> Search
+      <a href="/">
+        <span>Github</span> Search
+      </a>
     </Title>
   );
 }
