@@ -25,6 +25,6 @@ export default function UserDetails({ details }) {
 UserDetails.propTypes = {
   details: PropTypes.shape({
     type: PropTypes.string,
-    value: PropTypes.string,
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   }).isRequired,
 };

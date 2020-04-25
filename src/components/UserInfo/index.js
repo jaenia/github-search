@@ -30,9 +30,9 @@ UserInfo.propTypes = {
     details: PropTypes.shape({
       company: PropTypes.string,
       location: PropTypes.string,
-      starred: PropTypes.number,
-      publicRepos: PropTypes.number,
-      followers: PropTypes.number,
+      starred: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+      publicRepos: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+      followers: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     }),
   }).isRequired,
 };
