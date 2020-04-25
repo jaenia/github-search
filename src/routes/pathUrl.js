@@ -10,6 +10,10 @@ const pathUrl = [
     path: '/user/:user',
     component: Result,
   },
+  {
+    path: '/user/',
+    component: Result,
+  },
 ];
 
 export default pathUrl;
