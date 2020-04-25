@@ -51,12 +51,16 @@ Clone the repository and run command below:
 ### Test coverage
 `yarn test --coverage --watchAll=false`
 
-### Commits messages
+### Commit messages
 
 `feature/*`: Adds a new feature.
+
 `ref/*`: Refactoring/Improvements of existing features.
+
 `chore/*`: Config changes.
+
 `fix/*`: Fixes a bug in development.
+
 `test/*`: Adds or changes tests.
 
 ### Preview
