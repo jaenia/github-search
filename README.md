@@ -40,16 +40,24 @@
 ### Instalation
 
 Clone the repository and run command below:  
-`yarn install or npm install`
+```
+yarn install or npm install
+```
 
 ### Start
-`yarn start or npm start`
+```
+yarn start or npm start
+```
 
 ### Test
-`yarn test or npm test`
+```
+yarn test or npm test
+```
 
 ### Test coverage
-`yarn test --coverage --watchAll=false`
+```
+yarn test --coverage --watchAll=false
+```
 
 ## Commit messages
 
