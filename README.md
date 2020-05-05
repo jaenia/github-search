@@ -39,7 +39,7 @@
 
 ### Instalation
 
-Clone the repository and run command below:
+Clone the repository and run command below:  
 `yarn install or npm install`
 
 ### Start
@@ -51,7 +51,7 @@ Clone the repository and run command below:
 ### Test coverage
 `yarn test --coverage --watchAll=false`
 
-### Commit messages
+## Commit messages
 
 `feature/*`: Adds a new feature.
 
@@ -63,7 +63,7 @@ Clone the repository and run command below:
 
 `test/*`: Adds or changes tests.
 
-### Preview
+## Preview
 
 ![appScreenshot.png](./appScreenshot.png)
 <div align="center">
